@@ -1,0 +1,8 @@
+{
+  "version": 2,
+  "functions": {
+    "api/bfhl.js": {
+      "maxDuration": 10
+    }
+  }
+}

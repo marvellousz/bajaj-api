@@ -1,4 +1,15 @@
-export default function handler(req, res) {
+module.exports = (req, res) => {
+  // Enable CORS
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+
+  // Handle preflight requests
+  if (req.method === 'OPTIONS') {
+    res.status(200).end();
+    return;
+  }
+
   if (req.method === 'GET') {
     res.status(200).json({ 
       message: 'BFHL API is running',
@@ -13,4 +24,4 @@ export default function handler(req, res) {
       }
     });
   }
-}
+};
